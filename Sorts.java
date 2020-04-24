@@ -7,13 +7,13 @@
  */
 public class Sorts
 {
-    enum ListType {Standard, Bubble, Insert};
+    enum ListType {Standard, Bubble, Insert, Selection};
     ListType listType = ListType.Standard;
     
     private int[] list;
     private int[] blist; int bcompares = 0; int bswaps = 0;
     private int[] ilist; int icompares = 0; int iswaps = 0;
-
+    private int[] slist; int scompares = 0; int sSwaps = 0;
     /**
      * Constructor for objects of class isort
      */
@@ -28,6 +28,8 @@ public class Sorts
         this.BubbleSort();
         ilist = list.clone();
         this.InsertionSort();
+        slist = list.clone();
+        this.SelectionSort();
     }
     
     public String toString() {
@@ -52,6 +54,12 @@ public class Sorts
                   + " Compares: " + this.icompares
                   + " Swaps: " + this.iswaps);
                 list = this.ilist;
+            case Selection:
+                System.out.println("Selection Sort -- "
+                  + " Operations: " + (this.scompares + this.sSwaps)
+                  + " Compares: " + this.scompares
+                  + " Swaps: " + this.sSwaps);
+                list = this.slist;
         }
                 
         String output = "[";
@@ -61,7 +69,11 @@ public class Sorts
     }
     
     private int[] BubbleSort() { 
-        
+        /* This is a simple method of sorting although it is very inefficient. 
+         * It swaps two elements of the array in 
+         * 
+         * 
+         */
         // iterate list, one less than length
         for (int i = 0; i < blist.length - 1; i++) {
             
@@ -112,6 +124,31 @@ public class Sorts
         
         return ilist;
     }
+    
+    private int[] SelectionSort() {
+        /*Selection sort works by moving the minimum element in an array to the beginning
+         * It changes the selection (subarray) to move the minimum to the beginning of the selection
+         * Far more efficient than bubble sort because it is not looking at inidividual elements getting compared to each other
+         */
+        //declare integer for length
+        int len = slist.length;
+        
+        //move the boundary of the unsorted subarry
+        for (int i = 0; i < len-1; i++) {
+            //find the minimjm element of the subarray
+            int minIndx = i;
+            for (int j = i + 1; j < len; j++) {
+                if (slist[j] < slist[minIndx]){
+                 minIndx = j;   
+                }
+            }
+            //Make the first element the minumum element
+            int temporary = slist[minIndx]; //assigns a temporary variable have the original value preserved
+            slist[minIndx] = slist[i];
+            slist[i] = temporary;
+        }
+        return slist;
+    }
 
     /**
      *
@@ -128,6 +165,10 @@ public class Sorts
         
         // Insertion Sort
         is.listType = ListType.Insert;
+        System.out.println(is);
+        
+        //Selection Sort
+        is.listType = ListType.Selection;
         System.out.println(is);
     }
 }
