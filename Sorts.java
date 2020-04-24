@@ -101,7 +101,12 @@ public class Sorts
 
     
     private int[] InsertionSort() {
-
+        /*Insertion sort works by parsing through the array and placing the lowest element first
+         * It is similar to how we would sort cards in our hand by taking the lowest card and inserting it on top of the deck
+         * This is more efficient than the bubble sort method as it doesn't have to go through two elements at a time, but it is 
+         * less efficient than the Selection sort as it would have to continue iterating through the list to make the value correct
+         */
+        
         // iterate list, one less than length
         for (int i = 0; i < ilist.length - 1; i++) {
             
