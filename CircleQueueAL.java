@@ -1,4 +1,6 @@
 
+
+
 /**
  * Write a description of class CircleQueueAL here.
  *
@@ -151,4 +153,30 @@ public class CircleQueueAL
             presort.set(minIndx, presort.get(i));
         }
     }
+    
+    public static void main(String[] args){
+        /* // Original List
+        circleQueueAL is = new circleQueueAL();
+        System.out.println(is);
+        
+        // Insertion Sort
+        is.listType = ListType.Insert;
+        System.out.println(is);
+        
+        //Selection Sort
+        is.listType = ListType.Selection;
+        System.out.println(is);
+        
+        int size = 50;
+        list = new int[size];
+        for (int i = 0; i < list.length; i++)
+            list[i] = (int)(Math.random() * size) + 1;
+            
+        blist = list.clone();
+        this.BubbleSort();
+        ilist = list.clone();
+        this.InsertionSort();
+        slist = list.clone();
+        this.SelectionSort();*/
+    } 
 }
